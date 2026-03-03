@@ -127,7 +127,7 @@ button:hover{
   /* Make canvas shorter on mobile */
   canvas{
     width: min(86vw, 260px);
-    aspect-ratio: 1 / 2;   /* keeps the 10x20 “tetris” shape */
+    aspect-ratio: 1 / 1.5;   /* keeps the 10x20 “tetris” shape */
     height: auto;
 
     /* hard cap the height so panel stays visible */
