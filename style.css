@@ -122,10 +122,49 @@ button:hover{
 .mbtn.wide{ flex:2; }
 
 @media (max-width: 720px){
-  .mobile-controls{ display:block; }
-}
+  .wrap{
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding: 10px;
+    align-items: start;
+  }
 
-@media (max-width: 720px){
-  .wrap{ grid-template-columns: 1fr; }
-  .panel{ width: 100%; }
+  /* Make canvas smaller on phone */
+  canvas{
+    width: min(86vw, 260px);
+    height: auto;              /* keep aspect ratio */
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* Panel should not force lots of scrolling */
+  .panel{
+    padding: 10px;
+  }
+
+  h1{ font-size: 16px; margin-bottom: 6px; }
+  .stat{ margin: 6px 0; }
+
+  .btns{ margin-top: 8px; }
+  .mobile-controls{ margin-top: 8px; }
+
+  .mobile-controls .row{ margin-top: 8px; }
+  .mbtn{ padding: 12px; font-size: 15px; }
+
+  /* Instructions take space — reduce them on mobile */
+  .keys{
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+}
+@media (max-width: 390px){
+  canvas{
+    width: min(90vw, 230px);
+  }
+
+  /* Hide the long instructions if needed */
+  .keys{
+    display: none;
+  }
 }
