@@ -8,15 +8,38 @@
 </head>
 <body>
   <main class="wrap">
-    <canvas id="game" width="300" height="600"></canvas>
 
-    <aside class="panel">
-      <h1>Tetris <span class="badge" id="status">Running</span></h1>
+    <!-- TOP: game left, panel right -->
+    <section class="top">
+      <div class="game-area">
+        <canvas id="game" width="300" height="600"></canvas>
+      </div>
 
-      <div class="stat"><span>Score</span><b id="score">0</b></div>
-      <div class="stat"><span>Lines</span><b id="lines">0</b></div>
-      <div class="stat"><span>Level</span><b id="level">1</b></div>
+      <aside class="panel">
+        <h1>Tetris <span class="badge" id="status">Running</span></h1>
 
+        <div class="stat"><span>Score</span><b id="score">0</b></div>
+        <div class="stat"><span>Lines</span><b id="lines">0</b></div>
+        <div class="stat"><span>Level</span><b id="level">1</b></div>
+
+        <div class="btns">
+          <button id="toggle">Pause</button>
+          <button id="restart">Restart</button>
+        </div>
+
+        <div class="keys">
+          <b>Controls</b><br/>
+          ← / → move<br/>
+          ↓ soft drop<br/>
+          Space hard drop<br/>
+          Z / X rotate<br/>
+          P pause
+        </div>
+      </aside>
+    </section>
+
+    <!-- BOTTOM: phone controls centered -->
+    <section class="controls-bar">
       <div class="mobile-controls" aria-label="Mobile controls">
         <div class="row">
           <button class="mbtn" data-action="left">◀</button>
@@ -26,24 +49,10 @@
         <div class="row">
           <button class="mbtn wide" data-action="down">▼</button>
           <button class="mbtn wide" data-action="drop">DROP</button>
+        </div>
       </div>
+    </section>
 
-      <div class="btns">
-        <button id="toggle">Pause</button>
-        <button id="restart">Restart</button>
-      </div>
-
-      <div class="keys">
-        <b>Controls</b><br/>
-        ← / → move<br/>
-        ↓ soft drop<br/>
-        Space hard drop<br/>
-        Z / X rotate<br/>
-        P pause
-      </div>
-
-      </div>
-    </aside>
   </main>
 
   <script src="game.js"></script>
