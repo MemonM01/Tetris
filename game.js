@@ -243,6 +243,7 @@
     requestAnimationFrame(loop);
   }
 
+  //  --- Laptop Buttons ---
   document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'p') return togglePause();
     if (paused || gameOver) return;
@@ -255,6 +256,24 @@
       case 'z': case 'Z': rotate(-1); break;
       case 'x': case 'X': rotate(1); break;
     }
+  });
+
+    // --- Mobile buttons ---
+  document.querySelectorAll('.mbtn').forEach(btn => {
+    const action = btn.dataset.action;
+
+    const fire = () => {
+      if (paused || gameOver) return;
+      if (action === 'left') move(-1);
+      if (action === 'right') move(1);
+      if (action === 'down') softDrop();
+      if (action === 'drop') hardDrop();
+      if (action === 'rotate') rotate(1);
+    };
+
+    // Fast response on mobile
+    btn.addEventListener('touchstart', (e) => { e.preventDefault(); fire(); }, { passive:false });
+    btn.addEventListener('click', fire);
   });
 
   ui.toggle.addEventListener('click', togglePause);
