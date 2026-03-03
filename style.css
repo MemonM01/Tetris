@@ -121,50 +121,27 @@ button:hover{
 .mbtn:active{ transform: translateY(1px); border-color: var(--accent); }
 .mbtn.wide{ flex:2; }
 
-@media (max-width: 720px){
-  .wrap{
-    grid-template-columns: 1fr;
-    gap: 10px;
-    padding: 10px;
-    align-items: start;
-  }
 
-  /* Make canvas smaller on phone */
+
+@media (max-width: 720px){
+  /* Make canvas shorter on mobile */
   canvas{
     width: min(86vw, 260px);
-    height: auto;              /* keep aspect ratio */
+    aspect-ratio: 1 / 2;   /* keeps the 10x20 “tetris” shape */
+    height: auto;
+
+    /* hard cap the height so panel stays visible */
+    max-height: 55vh;
+
     display: block;
     margin: 0 auto;
   }
-
-  /* Panel should not force lots of scrolling */
-  .panel{
-    padding: 10px;
-  }
-
-  h1{ font-size: 16px; margin-bottom: 6px; }
-  .stat{ margin: 6px 0; }
-
-  .btns{ margin-top: 8px; }
-  .mobile-controls{ margin-top: 8px; }
-
-  .mobile-controls .row{ margin-top: 8px; }
-  .mbtn{ padding: 12px; font-size: 15px; }
-
-  /* Instructions take space — reduce them on mobile */
-  .keys{
-    margin-top: 8px;
-    font-size: 12px;
-    line-height: 1.35;
-  }
 }
+
+/* Extra small iPhones */
 @media (max-width: 390px){
   canvas{
     width: min(90vw, 230px);
-  }
-
-  /* Hide the long instructions if needed */
-  .keys{
-    display: none;
+    max-height: 48vh;
   }
 }
